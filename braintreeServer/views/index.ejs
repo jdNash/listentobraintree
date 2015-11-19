@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Let's make some noise</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="payment-card">
+
+        <h1> Pay below! </h1>
+
+        <form action="/process" method="post">
+            <fieldset>
+
+                <label for="amount">Amount</label>
+                <input id="amount" class="" name="amount" type="text" placeholder="XX.XX" required>
+                <input id="pname" name="pname" type="text" placeholder="Your name" required>
+                <div id="payment-form"></div>
+
+                <button type="submit" class="">Pay now</button>
+
+            </fieldset>
+        </form>
+    </div>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+
+braintree.setup('<%= clientToken %>', "dropin", {
+  container: "payment-form"
+});
+</script>
+</body>
+</html>
